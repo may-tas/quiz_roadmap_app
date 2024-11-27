@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "272245710825",
+    "project_id": "excercise-roadmap",
+    "storage_bucket": "excercise-roadmap.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272245710825:android:0503644b02ee7dfb60f578",
+        "android_client_info": {
+          "package_name": "com.excercise.roadmap.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG781ilqGuTpJJkXY2cmgpzlNg9zuOxpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
