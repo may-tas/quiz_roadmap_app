@@ -1,23 +1,22 @@
+import 'package:exercise_roadmap_app/cubit/roadmap_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class RoadmapCubit extends Cubit<List<String>> {
-  RoadmapCubit() : super([]);
+class RoadmapCubit extends Cubit<RoadmapState> {
+  RoadmapCubit() : super(RoadmapInitial());
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> fetchUnlockedDays(String username) async {
+    if (isClosed) return;
+    emit(RoadmapLoading());
     try {
-      final userDoc = await _firestore.collection('users').doc(username).get();
-      if (userDoc.exists) {
-        List<String> unlockedDays = List<String>.from(userDoc['unlockedDays']);
-        emit(unlockedDays);
-      } else {
-        emit([]);
-      }
+      final snapshot = await _firestore.collection('users').doc(username).get();
+      final data = snapshot.data();
+      final unlockedDays = List<String>.from(data?['unlockedDays'] ?? []);
+      emit(RoadmapLoaded(unlockedDays));
     } catch (e) {
-      emit([]);
-      print("Error fetching unlocked days: $e");
+      emit(RoadmapError("Error fetching unlocked days: $e"));
     }
   }
 }
