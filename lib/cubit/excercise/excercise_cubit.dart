@@ -1,4 +1,4 @@
-import 'package:exercise_roadmap_app/cubit/excercise_state.dart';
+import 'package:exercise_roadmap_app/cubit/excercise/excercise_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

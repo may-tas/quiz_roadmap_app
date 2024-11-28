@@ -1,12 +1,10 @@
-import 'package:exercise_roadmap_app/cubit/excercise_cubit.dart';
-import 'package:exercise_roadmap_app/cubit/mcq_cubit.dart';
-import 'package:exercise_roadmap_app/presentation/screens/login_screen.dart';
-import 'package:exercise_roadmap_app/presentation/screens/register_user_screen.dart';
+import 'package:exercise_roadmap_app/cubit/excercise/excercise_cubit.dart';
+import 'package:exercise_roadmap_app/cubit/mcq/mcq_cubit.dart';
 import 'package:exercise_roadmap_app/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'cubit/roadmap_cubit.dart';
+import 'cubit/roadmap/roadmap_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +32,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         title: "Roadmap App",
         routerConfig: goRouter,
+        debugShowCheckedModeBanner: false,
       ),
     );
   }

@@ -1,5 +1,7 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:exercise_roadmap_app/cubit/mcq_state.dart';
+import 'package:exercise_roadmap_app/cubit/mcq/mcq_state.dart';
 import 'package:exercise_roadmap_app/models/question_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -96,7 +98,7 @@ class MCQCubit extends Cubit<MCQState> {
         (progress[currentDay] as Map).values.every((val) => val == true);
 
     if (allCompleted) {
-      print('All exercises completed for $currentDay. Unlocking next day...');
+      log('All exercises completed for $currentDay. Unlocking next day...');
       await _unlockNextDay(progressDoc, username, dayIndex);
     }
   }
