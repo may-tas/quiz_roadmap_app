@@ -1,6 +1,6 @@
 import 'package:exercise_roadmap_app/cubit/excercise/excercise_cubit.dart';
 import 'package:exercise_roadmap_app/cubit/mcq/mcq_cubit.dart';
-import 'package:exercise_roadmap_app/routes.dart';
+import 'package:exercise_roadmap_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
