@@ -7,8 +7,11 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<void> registerUser(String email, String password, String username,
-      BuildContext context) async {
+  Future<void> registerUser(
+    String email,
+    String password,
+    String username,
+  ) async {
     try {
       // Register the user with Firebase Auth
       UserCredential userCredential =
@@ -22,11 +25,6 @@ class AuthService {
         // Initialize the Firestore document for the user
         await _firestore.collection('users').doc(username).set({
           'progress': {
-            'day1': {
-              'excercise1': false,
-              'excercise2': false,
-              'excercise3': false,
-            },
             'day2': {
               'excercise1': false,
               'excercise2': false,
@@ -47,8 +45,7 @@ class AuthService {
           }, // Initialize progress as empty
           'unlockedDays': ['day1'], // Start with day1 unlocked
         });
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()));
+
         print("User registered and Firestore initialized successfully!");
       }
     } catch (e) {

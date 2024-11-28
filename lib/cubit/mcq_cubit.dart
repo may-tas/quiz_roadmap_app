@@ -76,23 +76,27 @@ class MCQCubit extends Cubit<MCQState> {
     Map<String, dynamic> progress =
         (progressDoc.data() as Map<String, dynamic>)['progress'] ?? {};
     String currentDay = day;
-    String exerciseId = 'excercise$excerciseIndex';
+    String excerciseId = 'excercise$excerciseIndex';
 
     // Mark the exercise as completed
-    progress[currentDay] ??= {};
-    progress[currentDay][exerciseId] = true;
+    progress[currentDay] ??=
+        {}; // Initialize the day if it's not already present
+    progress[currentDay][excerciseId] = true;
 
-    // Update Firestore
+// Update Firestore
     await _firestore
         .collection('users')
         .doc(username)
         .update({'progress': progress});
 
+// Check if all exercises are completed for the current day
+
     // Check if all exercises are completed for the current day
     bool allCompleted =
         (progress[currentDay] as Map).values.every((val) => val == true);
+
     if (allCompleted) {
-      print('im here');
+      print('All exercises completed for $currentDay. Unlocking next day...');
       await _unlockNextDay(progressDoc, username, dayIndex);
     }
   }

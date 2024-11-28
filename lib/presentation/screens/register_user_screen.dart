@@ -1,6 +1,7 @@
 import 'package:exercise_roadmap_app/presentation/screens/login_screen.dart';
 import 'package:exercise_roadmap_app/services/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -21,9 +22,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
     String username = _usernameController.text.trim();
 
     if (email.isNotEmpty && password.isNotEmpty && username.isNotEmpty) {
-      await _authService.registerUser(email, password, username, context);
+      await _authService.registerUser(email, password, username);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Registration successful!")),
+        const SnackBar(
+            content: Text("Registration successful!, Please login now !")),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
