@@ -4,6 +4,11 @@ An interactive roadmap app developed using Flutter that presents daily exercises
 
 ---
 
+# Demo :
+
+https://github.com/user-attachments/assets/0f6ec18f-30e1-4875-89fc-dd490ce5eedc
+
+
 ## Table of Contents
 
 1. [Setup & Compilation Instructions](#setup--compilation-instructions)
@@ -11,7 +16,6 @@ An interactive roadmap app developed using Flutter that presents daily exercises
 3. [Design Decisions](#design-decisions)
 4. [Known Limitations](#known-limitations)
 5. [Database Schema Documentation](#database-schema-documentation)
-
 ---
 
 ## Setup & Compilation Instructions
